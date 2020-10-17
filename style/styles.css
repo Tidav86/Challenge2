@@ -1,0 +1,65 @@
+html {
+  font-family: Josefin Sans, sans-serif;
+  font-size: 16px;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background-color: hsl(0, 0%, 100%);
+}
+
+.wrapper {
+  display: flex;
+
+  width: 100vw;
+  height: 100vh;
+
+  justify-content: center;
+  align-items: center;
+}
+main {
+  display: grid;
+  width: 80vw;
+  min-height: 65vh;
+
+  grid-template-columns: 1.5fr 1fr;
+  grid-template-rows: 3rem 1fr;
+  grid-template-areas:
+    "nav photo"
+    "subscribe photo";
+
+  box-shadow: 0px 15px 20px hsla(218, 22%, 67%, 0.7);
+
+  background-image: url("../images/bg-pattern-desktop.svg");
+  background-repeat: no-repeat;
+}
+main .nav,
+main .subscribe {
+  margin: 0;
+}
+.nav {
+  grid-area: nav;
+
+  background: url("../images/logo.svg") no-repeat;
+}
+
+.subscribe {
+  grid-area: subscribe;
+  display: flex;
+}
+.photo {
+  grid-area: photo;
+  display: flex;
+
+  width: 100%;
+
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url("../images/hero-desktop.jpg");
+}
+
+.subscribe h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
