@@ -1,86 +1,94 @@
 html {
   font-family: Josefin Sans, sans-serif;
-  font-size: 16px;
+  font-size: 1vw;
 }
 body {
   margin: 0;
   padding: 0;
   background-color: hsl(0, 0%, 100%);
 }
-
-.wrapper {
+.flex-box {
   display: flex;
 
-  width: 100vw;
-  height: 100vh;
+  margin: 8vw 15vw;
 
-  justify-content: center;
-  align-items: center;
+  width: 75vw;
+  height: 75vh;
 }
-main {
+.wrapper {
+  width: 100%;
+  height: 100%;
+
   display: grid;
 
-  max-width: 75vw;
+  grid-template-columns: 1fr calc(100vh * (610 / 800));
+  grid-template-rows: auto 1fr;
+}
+main {
+  grid-column: 1;
+  grid-row: 1 / span 3;
 
-  grid-template-columns: 34rem 25rem;
-  grid-template-rows: 5rem 1fr;
-  grid-template-areas:
-    "logo photo"
-    "subscribe photo";
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("../images/bg-pattern-desktop.svg");
 
   box-shadow: 0px 15px 20px hsla(218, 22%, 67%, 0.7);
+}
 
-  background-size: contain;
+.subscribe {
+  box-sizing: border-box;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  padding-top: 5rem;
+
+  justify-content: center;
+}
+
+.photo {
+  grid-column: 2;
+  grid-row: 1 / span 3;
+
   background-repeat: no-repeat;
-  background-image: url("../images/bg-pattern-desktop.svg");
+  background-size: cover;
+  background-image: url("../images/hero-desktop.jpg");
+
+  box-shadow: 0px 15px 20px hsla(218, 22%, 67%, 0.7);
 }
 
 .logo-wrapper {
-  grid-area: logo;
+  grid-column: 1;
+  grid-row: 1;
 
-  width: 34rem;
-  height: 5rem;
+  height: 2.25rem;
+
+  padding-top: 4.5rem;
 }
 
 .logo {
-  width: 10vw;
-  height: 5vh;
+  height: 100%;
 
-  margin: 3rem 0 0 7rem;
-
-  background-size: contain;
   background-repeat: no-repeat;
+  background-size: contain;
   background-image: url("../images/logo.svg");
 }
+
+.logo,
 .subscribe {
-  grid-area: subscribe;
-
-  display: flex;
-  flex-direction: column;
-}
-.photo {
-  grid-area: photo;
-  display: flex;
-
-  width: 100%;
-
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-image: url("../images/hero-desktop.jpg");
+  width: 65%;
+  margin: auto;
 }
 
 .subscribe h1 {
-  margin: 5rem 7rem 1.5rem 7rem;
-
-  font-size: 3rem;
-  font-weight: 600;
+  line-height: 5vw;
+  font-size: 5vw;
 
   text-transform: uppercase;
   letter-spacing: 1rem;
 }
 
 .text {
-  margin: 0 7rem;
+  margin: 1.5rem 0 2.75rem 0;
 
   font-size: 1rem;
   font-weight: 600;
@@ -89,19 +97,21 @@ main {
   color: hsl(0, 36%, 70%);
 }
 .form {
+  box-sizing: border-box;
+  position: relative;
+
   display: flex;
 
-  justify-content: center;
+  width: 100%;
 
-  padding: 3rem;
+  padding: 1rem 0;
 }
 
 input {
-  margin: 0 4rem;
   padding: 0;
 
   height: 2rem;
-  width: 30rem;
+  width: 100%;
 
   border-radius: 50px 50px;
   border: 1px solid rgb(247, 208, 208);
@@ -118,9 +128,7 @@ input::placeholder {
 
 .form .submit {
   position: absolute;
-  bottom: 10rem;
-
-  margin-left: 7.5rem;
+  right: 0;
 
   width: 5rem;
   height: 2.2rem;
@@ -148,97 +156,4 @@ input::placeholder {
 .form .submit:hover {
   filter: brightness(105%);
   box-shadow: 0px 0.5rem 1.5rem rgba(0, 0, 0, 0.3);
-}
-
-@media (max-width: 375px) {
-  html {
-    font-size: 12px;
-  }
-  main {
-    display: grid;
-    grid-template-columns: 23rem;
-    grid-template-rows: auto calc(75vw * (250 / 375)) 1fr;
-    grid-template-areas:
-      "logo"
-      "photo"
-      "subscribe";
-  }
-
-  .photo {
-    width: 100%;
-
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-image: url("../images/hero-mobile.jpg");
-  }
-
-  .logo-wrapper {
-    width: 100%;
-    height: 100%;
-  }
-
-  .logo {
-    width: 25vw;
-    height: 5vh;
-
-    margin: 2rem 0 0 2rem;
-
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-image: url("../images/logo.svg");
-  }
-
-  .subscribe h1 {
-    margin: 2rem 2rem 1.5rem 2rem;
-
-    text-align: center;
-  }
-
-  .text {
-    margin: 0 2rem;
-
-    text-align: center;
-  }
-  .form {
-    display: flex;
-
-    justify-content: center;
-
-    padding: 3rem;
-  }
-
-  input {
-    margin: 0;
-    padding: 0;
-
-    width: 30rem;
-  }
-
-  input::placeholder {
-    padding-left: 1rem;
-  }
-
-  .form .submit {
-    position: absolute;
-    bottom: 11.8rem;
-
-    margin-left: 6rem;
-
-    width: 5rem;
-    height: 2.2rem;
-  }
-
-  .form .arrow {
-    width: 10px;
-    height: 15px;
-
-    margin: auto;
-    background-image: url("../images/icon-arrow.svg");
-    background-size: contain;
-    background-repeat: no-repeat;
-  }
-  .form .submit:hover {
-    filter: brightness(105%);
-    box-shadow: 0px 0.5rem 1.5rem rgba(0, 0, 0, 0.3);
-  }
 }
