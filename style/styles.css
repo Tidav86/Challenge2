@@ -80,8 +80,8 @@ main {
 }
 
 .subscribe h1 {
-  line-height: 5vw;
-  font-size: 5vw;
+  line-height: 5rem;
+  font-size: 5rem;
 
   text-transform: uppercase;
   letter-spacing: 1rem;
@@ -192,6 +192,25 @@ input::placeholder {
     grid-row: 3;
 
     background-image: none;
-    background-color: #f3e8e8;
+    background-color: #fffcfc;
+  }
+  .subscribe {
+    width: 85%;
+    margin: auto;
+  }
+  .subscribe h1 {
+    line-height: 3.5rem;
+    font-size: 3.5rem;
+
+    margin-top: 0;
+    text-align: center;
+
+    letter-spacing: 0.5rem;
+  }
+  .text {
+    margin-top: 2.5rem;
+
+    text-align: center;
+    font-size: 1.2rem;
   }
 }
